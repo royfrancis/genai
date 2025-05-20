@@ -1,6 +1,6 @@
 # Build and deploy to gitHub pages
 
-name: Build and deploy site
+name: build-deploy
 on:
   workflow_dispatch:
   push:
