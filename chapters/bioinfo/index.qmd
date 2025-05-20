@@ -1,0 +1,16 @@
+---
+title: Bioinformatics
+description: AI in bioinformatics.
+execute:
+  echo: false
+  eval: true
+---
+
+## Tools
+
+- [Cellformatica](https://www.cellformatica.com/)
+- [DrBioRight](https://drbioright.org/)
+- [Futurehouse](https://platform.futurehouse.org)
+- [Owkin](https://www.owkin.com/k-os/k-navigator)
+- [TxGemma](https://developers.google.com/health-ai-developer-foundations/txgemma)
+- [Nebius](https://academy.nebius.com/llm-engineering-essentials)

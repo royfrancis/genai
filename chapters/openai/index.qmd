@@ -1,0 +1,139 @@
+---
+title: OpenAI models
+description: More details on OpenAI models
+---
+
+```{r}
+#| echo: false
+
+library(readxl)
+library(gt)
+library(dplyr)
+library(RColorBrewer)
+library(lubridate)
+library(highcharter)
+
+rdylgn <- colorRampPalette(brewer.pal(5, "RdYlGn"))
+
+openai <- readxl::read_xlsx("openai-models.xlsx") %>%
+  mutate(Date_training = dmy(Date_training))
+```
+
+## Models
+
+The table below lists the different generations of OpenAI GPT models.
+
+::: {.small}
+
+```{r}
+#| label: tbl-openai-models
+#| tbl-cap: Comparison of various OpenAI models.
+#| output: asis
+#| echo: false
+
+openai %>%
+  gt(auto_align = FALSE) %>%
+  data_color(
+    columns = c(Intelligence, Speed),
+    method = "numeric",
+    palette = "plasma",
+    domain = c(0, max(c(openai$Intelligence, openai$Speed), na.rm = TRUE)),
+  ) %>%
+  data_color(
+    columns = c(Cost_input, Cost_output),
+    method = "numeric",
+    palette = "viridis",
+    domain = c(0, max(c(openai$Cost_input, openai$Cost_output), na.rm = TRUE)),
+  ) %>%
+  data_color(
+    columns = Context_max,
+    method = "numeric",
+    palette = "inferno",
+    domain = c(min(openai$Context_max, na.rm = TRUE), max(openai$Context_max, na.rm = TRUE)),
+  ) %>%
+  cols_align(
+    align = "left",
+    columns = "Model"
+  ) %>%
+  cols_width(
+    Model ~ px(140)
+  ) %>%
+  opt_interactive(use_filters = TRUE, use_pagination = FALSE)
+```
+
+:::
+
+[Standard context windows: gpt-3.5 (4K), gpt-4 (8K), gpt-4o (8K). For more info, see GPT models [documentation](https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4).]{.small}  
+
+**Modality** refers to the types of inputs that the model can process such as text and images. This highlights the versatility of the model in handling different kinds of data. **Cost_input** and **Cost_output** is the cost of input and output in USD per million tokens. **Context_max** indicates the maximum length of the text (in tokens) that the model can consider. Larger context windows allow the model to take into account more information when generating responses. **Intelligence** is a relative score of the model's capabilities. **Speed** is a relative score of the rate at which output tokens are generated. Mini models are generally faster but lower intelligence. **Date_training** shows the cutoff date for the data used to train the model. It indicates how up-to-date the model is in terms of general knowledge.
+
+```{r}
+#| label: fig-scatter-speed-intelligence
+#| echo: false
+#| fig-cap: Scatterplot of OpenAI models showing intelligence on x-axis and speed on the y-axis. Size denotes the output cost and color denotes context length.
+
+library(highcharter)
+
+highchart(type = "chart") %>%
+  # add stroke color to the points
+  hc_add_series(na.omit(openai), "scatter", hcaes(x = Intelligence, y = Speed, size = Cost_output, group = Context_max),
+    dataLabels = list(enabled = TRUE, format = "{point.Model}", style = list(textOutline = "none", color = "black")),
+    minSize = 10, maxSize = 40
+  ) %>%
+  hc_xAxis(title = list(text = "Intelligence")) %>%
+  hc_yAxis(title = list(text = "Speed")) %>%
+  hc_tooltip(pointFormat = "<b>{point.Model}</b>: {point.y}") %>%
+  hc_chart(zoomType = "xy")
+```
+
+The table below lists the different variants usually available for a model.
+
+|Model|Description|
+|:---|:---|
+|gpt-3.5|Standard model|
+|gpt-3.5-turbo|Optimized for speed & cost, for rapid interactions such as chat|
+|gpt-3.5-16k|Extended context window of 16K tokens|
+|gpt-3.5-instruct|Fine tuned to follow instructions more accurately|
+|gpt-3.5-preview|Experimental early release|
+
+: List of OpenAI model variants {#tbl-openai-model-variants}
+
+The **instruct** or **turbo** versions are recommended for chat use.
+
+## Parameters
+
+Let's explore some of parameters that affect the responses from an OpenAI model.
+
+### Temperature
+
+![](assets/sampling-temperature.png){width="380px"} 
+
+- Controls randomness/creativity, Range 1-2
+- Close to 0: Deterministic and predictable, For factual responses
+- Default 1: Balanced
+- Close to 2: More random, diverse, for brain storming, story telling etc.
+
+### Top P (Nucleus sampling)
+
+![](assets/sampling-top-p.png){width="380px" height="100%"}  
+
+- Limits output by selecting top tokens up to cumulative probability P
+- Range 0-1
+- Default 1: Broader range of tokens considered, more variance, creative writing
+- Lower values: Fewer tokens considered, more focused, consistent text
+
+### Frequency penalty
+
+- Penalizes frequent tokens to reduce repetition in generated text
+- Range -2 to 2, Default 0
+- **>0**: Avoid repeating words or phrases. Output more varied but potentially less cohesive, more creative writing
+- **<0**: Repeat words/phrases more often, more coherent but risk of redundancy. Technical writing
+
+### Presence penalty
+
+- Encourages new concepts by penalizing previously used tokens
+- Range -2 to 2, Default 0
+- **>0**: Likely to introduce new topics making the output diverse and wide-ranging
+- **<0**: Less compelled to introduce new topics, maintain focus on a specific subject. Good for detailed explanations, essays, instructions
+
+

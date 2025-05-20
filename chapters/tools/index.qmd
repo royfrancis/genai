@@ -1,0 +1,126 @@
+---
+title: Tools
+description: Running and using generative AI
+---
+
+## Ollama
+
+Open source models can be run locally on your own computer given sufficient compute and storage resources. The easiest tool to run models locally is [Ollama](https://ollama.com/). List of models directly supported by Ollama are listed on their website. Resource requirements for models are listed on their [GitHub repo](https://github.com/ollama/ollama).
+
+```bash
+ollama list
+ollama pull llama3.1
+ollama show llama3.1
+ollama run llama3.1
+ollama run llava "What's in this image? /Users/jmorgan/Desktop/smile.png"
+```
+
+Ollama can be used with GUIs as well as integrate programatically with Python and R.
+
+According to Ollama, you should have at least 8 GB of RAM available to run the 7B models, 16 GB to run the 13B models, and 32 GB to run the 33B models.
+
+## Fabric
+
+[Fabric](https://github.com/danielmiessler/fabric) allows command-line access to LLM models.
+
+```bash
+fabric --listvendors
+fabric --listmodels
+fabric --listpatterns
+fabric --setup
+fabric --changeDefaultModel llama3.1:8b
+fabric -sp extract_wisdom
+yt --transcript https://www.youtube.com/watch\?v\=e-gwvmhyU7A | fabric -m llama3.1:8b -sp summarize
+pbpaste | yt | fabric -m llama3.1:8b -sp summarize
+echo "An idea that coding is like speaking with rules." | write_essay
+```
+
+Fabric's prebuilt prompts (patterns) are listed [here](https://github.com/danielmiessler/fabric/tree/main/patterns). Some of the interesting ones:
+
+- summarize
+- extract_ideas
+- extract_insights
+- extract_wisdom
+- improve_writing
+- improve_academic_writing
+- write_essay
+- create_art_prompt
+
+```bash
+fabric --list
+```
+
+```bash
+echo "Search for recent articles about the future of AI and write me a 500-word essay on the findings" | fabric --agents
+```
+
+## R
+
+R packages that are helpful for interacting with LLMs.
+
+|Package|Interfaces|Features|
+|---|---|---|
+[ellmer](https://ellmer.tidyverse.org/)|openai,anthropic,gemini etc|query,chat,text->image,vision|
+|[openai samterfa](https://github.com/samterfa/openai)|openai|query,chat,text->image,vision|
+|[openai irudnyts](https://irudnyts.github.io/openai/)|openai|query,chat,text->image,vision|
+|[rollama](https://github.com/JBGruber/rollama)|ollama|query,chat,vision|
+|[ollamar](https://github.com/hauselin/ollama-r/)|ollama|query,chat|
+|[tidychatmodels](https://github.com/AlbertRapp/tidychatmodels)|openai,mistral,ollama|query,chat|
+|[huggingfaceR](https://github.com/farach/huggingfaceR)|huggingface||
+|[audio.whisper](https://github.com/bnosac/audio.whisper)|whisper|audio->text|
+
+## UI
+
+Graphical user interfaces for LLMs
+
+|Tool|Description|
+|---|---|
+|[Msty](https://msty.app/)|Remote/local models, chat branching|
+|[Anything LLM](https://anythingllm.com/)||
+|[OpenWebUI](https://openwebui.com)||
+|[LM Studio](https://lmstudio.ai/)||
+|[Poe](https://poe.com/login)||
+
+## Image
+
+Tools for generating images from text.
+
+|Tool|Category|Description|
+|---|---|---|
+|[Microsoft Designer](https://designer.microsoft.com/)|Text to Image|Generation and editing using Dall-E|
+|[Ideogram](https://ideogram.ai/)|Text to Image||
+|[Leonardo AI](https://leonardo.ai/)|Text to Image|Advanced reference and style control|
+|[Adobe Firefly](https://firefly.adobe.com)|Text to Image|Reference and style control|
+|[Midjourney](https://www.midjourney.com)|Text to Image||
+
+## Other
+
+Other generative AI tools
+
+|Tool|Category|Description|
+|---|---|---|
+|[Perplexity](https://www.perplexity.ai/) | Text to text | AI driven search |
+|[Zapier](https://zapier.com/) | Text to text | Automate workflows |
+|[Google AI Studio](https://aistudio.google.com/) | Text to text | Task helper |
+|[Eleven labs](https://elevenlabs.io/) | Text to speech | Text to speech |
+|[Runway](https://runwayml.com/) | Text to video | Video generation |
+|[Udio](https://www.udio.com/) | Text to Speech | Audio generation |
+
+## Builder
+
+Building LLM Powered Applications
+
+Modern applications leverage specialized frameworks and tools to streamline LLM integration. For example, you can use Python-based libraries like LangChain and Haystack to orchestrate your models, while tools such as LlamaIndex help with efficient information retrieval. Integrated solutions like SanaLabs combine AI agents with intuitive GUIs for rapid development.
+
+These tools make it easier to create chatbots, search interfaces, and other interactive systems powered by LLMs.
+
+|Tool|Description|
+|---|---|
+|[LangChain](https://langchain.com/) | LLM agent framework, Python |
+|[Haystack](https://haystack.deepset.ai/) | LLM agent framework |
+|[LlamaIndex](https://gpt-index.readthedocs.io/en/latest/) | LLM agent framework |
+|[SanaLabs](https://sanalabs.com)| AI agents integration with many tools, GUI, Web interface |
+|[LlamaIndex](https://www.llamaindex.ai/) | LLM agent framework |
+|[LlamaHub](https://llamahub.ai/) | LLM agent framework |
+|[My AI](https://my.ai.se/home)| LLM agent framework |
+|[AG UI](https://github.com/ag-ui-protocol/ag-ui)| Agent-User interaction protocol |

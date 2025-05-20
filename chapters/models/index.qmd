@@ -1,0 +1,106 @@
+---
+title: Models
+description: Guide to various LLM models, features and benchmarks.
+execute:
+  echo: false
+  eval: true
+---
+
+```{r}
+library(readxl)
+library(gt)
+library(highcharter)
+library(lubridate)
+library(htmltools)
+library(dplyr)
+```
+
+## Overview
+
+The table below lists the most common/popular LLMs.
+
+```{r}
+#| label: tbl-llms
+#| tbl-cap: List of recent LLMs. Params in either known or estimated number of parameters in billions. Size is approximate model size in GB. Input is supported input modalities, Context is the maximum context window size in tokens.
+#| output: asis
+
+remove_css <- function(x) {
+  x <- gsub("<style>.*</style>", "", x)
+  htmltools::HTML(x)
+}
+
+readxl::read_xlsx("models.xlsx") %>%
+  filter(!is.na(Release)) %>%
+  dplyr::select(-Cost_Input, -Cost_Output) %>%
+  mutate(Release = dmy(Release)) %>%
+  arrange(desc(Release)) %>%
+  select(-Comment) %>%
+  gt(auto_align = FALSE) %>%
+  cols_align(
+    align = "left",
+    columns = "Model"
+  ) %>%
+  opt_interactive(use_filters = TRUE)
+# as_raw_html(inline_css = FALSE) %>%
+# remove_css()
+```
+
+The graph below shows a timeline of top LLMs and the number of hyperparameters.
+
+```{r}
+#| label: fig-scatter-llms
+#| fig-cap: Timeline of recent LLMs showing number of hyperparameters on the Y axis. The size of the points denote the context window size in tokens.
+
+dfr <- readxl::read_xlsx("models.xlsx") %>%
+  mutate(Release = dmy(Release)) %>%
+  filter(Release > "2022-01-01") %>%
+  mutate(Company = factor(Company)) %>%
+  mutate(Params = as.numeric(Params))
+
+highchart(type = "chart") %>%
+  hc_add_series(dfr, "scatter", hcaes(x = Release, y = Params, size = Params, group = Company),
+    dataLabels = list(enabled = TRUE, format = "{point.Model}", style = list(textOutline = "none", color = "black")),
+    minSize = 10, maxSize = 40
+  ) %>%
+  hc_xAxis(title = list(text = ""), type = "datetime") %>%
+  hc_yAxis(title = list(text = "Number of hyperparameters (Billions)")) %>%
+  hc_tooltip(pointFormat = "<b>{point.Model}</b>: {point.y}") %>%
+  hc_chart(zoomType = "xy")
+```
+
+The number of hyperparameters although indicative of the capabilities of a model doesn't explain the performance completely. The model architecture, training methodology and the quality and quantity of training data may allow a smaller model to catch up to the capabilities of a larger model. 
+
+Other factors that make a model desirable are speed and cost of running the model. Certain models may also be strong in certain focus areas such as coding, reasoning and knowledge.
+
+## Benchmarking
+
+[LLM benchmarks](https://www.confident-ai.com/blog/llm-benchmarks-mmlu-hellaswag-and-beyond) are a set of standardized tests designed to evaluate the performance of LLMs on various skills, such as reasoning and comprehension, and utilize specific scorers or metrics to quantitatively measure these abilities. Here are some leaderboards that rank LLMs.
+
+- [WebDev Arena](https://web.lmarena.ai/leaderboard)
+- [LM Arena](https://lmarena.ai/?leaderboard)
+- [ArtificialAnalysis](https://artificialanalysis.ai/)
+- [Vellum](https://www.vellum.ai/llm-leaderboard)
+- [HF LymSys](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard)
+- [TrustBit](https://www.trustbit.tech/en/llm-leaderboard-juli-2024)
+- [DocsBot](https://docsbot.ai/models) Model specs
+
+## Image models
+
+Here is a list of the top image generation models
+
+- [GPT Image 1](https://platform.openai.com/docs/models/gpt-image-1) | OpenAI, Closed
+- [Flux](https://blackforestlabs.ai/) | Blackforst labs, Open source
+- [Imagen 3](https://deepmind.google/technologies/imagen-3/) | Deepmind, Closed
+- [Grok 2](https://x.ai/blog/grok-2) | xAI, Closed
+- [GPT-4](https://openai.com/index/gpt-4/) | OpenAI, Closed
+- [Dall-E 3](https://openai.com/index/dall-e-3/) | OpenAI, Closed
+- [Stable diffusion](https://stability.ai/stable-image) | Stability AI, Open source
+- [Firefly](https://firefly.adobe.com/) | Adobe, Closed
+- [Midjourney](https://www.midjourney.com/showcase) | Midjourney, Closed
+- [Amazon Nova Canvas](https://www.aboutamazon.com/news/aws/amazon-nova-artificial-intelligence-bedrock-aws) | Amazon, Closed
+
+## Video models
+
+- [Sora](https://openai.com/sora/) | OpenAI, Closed
+- [Veo 2](https://deepmind.google/technologies/veo/veo-2/) | Google Deepmind, Closed
+- [Amazon Nova Reel](https://aws.amazon.com/ai/generative-ai/nova/creative/) | Amazon, Closed

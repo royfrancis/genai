@@ -1,0 +1,7 @@
+---
+title: Introduction
+---
+
+Large Language Models (LLMs) are a class of artificial intelligence (AI) models that are designed to understand, generate, and manipulate human language on a large scale. These models have gained immense popularity due to their ability to perform a variety of tasks such as translation, summarization, question-answering, and more. They leverage the inherent patterns in vast amounts of textual data to make accurate predictions and generate human-like text.
+
+This is a guide on using LLMs in practice. This will not cover much details on how an LLM works and all the mathematical complexity behind it. We will explore the current models, their features, the tools available to run LLMs, how and when to use them.

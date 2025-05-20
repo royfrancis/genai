@@ -1,0 +1,24 @@
+---
+title: Home
+subtitle: ""
+description: ""
+author: ""
+date: ""
+toc: false
+format:
+  html:
+    title-block-banner: false
+---
+
+![](assets/cover.webp)
+
+[Large Language Models And Generative AI]{.largest}  
+[A practical overview of LLMs]{.large style="letter-spacing:0.15em;text-transform:uppercase;"}
+
+By **Roy Francis**
+
+---
+
+::: small
+Updated: {{< meta current_date >}} at {{< meta current_time >}}.
+:::

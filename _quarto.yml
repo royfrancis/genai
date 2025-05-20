@@ -1,0 +1,63 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "GenAI"
+  author: Roy Francis
+  page-navigation: true
+  favicon: assets/favicon.png
+  open-graph: true
+  description: "A practical overview of Large Language Models (LLMs), generative AI and the tools to use them."
+  image: assets/cover.webp
+  site-url: https://royfrancis.github.io/genai
+  repo-url: https://github.com/royfrancis/genai
+  repo-branch: main
+  sidebar:
+    style: docked
+    search: true
+  page-footer:
+    border: false
+    left: "{{< meta current_year >}} Roy Francis • CC BY-NC-SA 4.0"
+    right: "Published with [Quarto](https://quarto.org/) v{{< meta quarto_version >}}"
+  chapters:
+    - index.qmd
+    - chapters/llms/index.qmd
+    - chapters/models/index.qmd
+    - chapters/openai/index.qmd
+    - chapters/tools/index.qmd
+    - chapters/bioinfo/index.qmd
+
+format:
+  html:
+    include-in-header: "assets/head.html"
+    theme:
+      - default
+      - assets/css/styles.scss
+    date-format: DD-MMM-YYYY
+    number-sections: true
+    title-block-banner: "#1f618d"
+    toc: true
+    smooth-scroll: true
+    bread-crumbs: false
+
+crossref:
+  fig-title: "**Fig**"
+  tbl-title: "**Tab**"
+  title-delim: "**: **"
+
+knitr:
+  opts_chunk:
+    results: hold
+
+execute:
+  eval: true
+  echo: true
+  warning: false
+  message: false
+  freeze: false
+
+filters:
+  - assets/custom.lua
+  - fontawesome
+
