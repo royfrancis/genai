@@ -29,25 +29,46 @@ fabric --listmodels
 fabric --listpatterns
 fabric --setup
 fabric --changeDefaultModel llama3.1:8b
-fabric -sp extract_wisdom
-yt --transcript https://www.youtube.com/watch\?v\=e-gwvmhyU7A | fabric -m llama3.1:8b -sp summarize
-pbpaste | yt | fabric -m llama3.1:8b -sp summarize
-echo "An idea that coding is like speaking with rules." | write_essay
+fabric --model mistral
+
+fabric -y https://www.youtube.com/watch\?v\=Ed4vBY2IQXg > transcript.txt
+cat transcript.txt | fabric -sp summarize
+cat transcript.txt | fabric -sp extract_wisdom
+pbpaste | fabric -sp extract_wisdom
+cat transcript.txt | fabric --model mistral:latest -sp summarize
+pbpaste | fabric -sp improve_prompt
+fabric -y https://www.youtube.com/watch\?v\=e-gwvmhyU7A -m llama3.1:8b -sp summarize
+pbpaste | fabric -m llama3.1:8b -sp summarize
+echo "An idea that coding is like speaking with rules." | fabric -sp write_essay
 ```
 
-Fabric's prebuilt prompts (patterns) are listed [here](https://github.com/danielmiessler/fabric/tree/main/patterns). Some of the interesting ones:
+Fabric's prebuilt prompts (patterns) are listed [here](https://github.com/danielmiessler/fabric/tree/main/patterns). Few of the interesting ones:
 
-- summarize
-- extract_ideas
-- extract_insights
+- analyze_claims
+- create_summary
+- create_art_prompt
 - extract_wisdom
+- extract_references
+- extract_ideas
+- extract_main_idea
+- extract_insights
+- improve_prompt
 - improve_writing
 - improve_academic_writing
+- summarize
+- summarize_meeting
+- translate
 - write_essay
-- create_art_prompt
 
 ```bash
-fabric --list
+fabric --listpatterns
+fabric --listpatterns | grep "improve"
+fabric --listpatterns | grep "extract"
+fabric --listpatterns | grep "summarize"
+fabric --listpatterns | grep "write"
+fabric --listpatterns | grep "translate"
+fabric --listpatterns | grep "create"
+fabric --listpatterns | grep "analyze"
 ```
 
 ```bash
