@@ -74,14 +74,35 @@ Other factors that make a model desirable are speed and cost of running the mode
 
 ## Benchmarking
 
-[LLM benchmarks](https://www.confident-ai.com/blog/llm-benchmarks-mmlu-hellaswag-and-beyond) are a set of standardized tests designed to evaluate the performance of LLMs on various skills, such as reasoning and comprehension, and utilize specific scorers or metrics to quantitatively measure these abilities. Here are some leaderboards that rank LLMs.
+[LLM benchmarks](https://www.confident-ai.com/blog/llm-benchmarks-mmlu-hellaswag-and-beyond) are a set of standardized tests designed to evaluate the performance of LLMs on various skills, such as reasoning and comprehension, and utilize specific scorers or metrics to quantitatively measure these abilities. 
 
+These are some of the benchmark standards/datasets.
+
+- [SWE-bench](https://www.swebench.com/) (Agentic coding): Evaluates if LLMs can evaluate real-world GitHub issues. Measures Agentic reasoning
+- [Terminal-bench](https://www.tbench.ai/) (Agentic coding): A collection of tasks to evaluate terminal mastery
+- [TAU-bench](https://sierra.ai/blog/benchmarking-ai-agents) (Agentic tool usage): Measures an agent’s ability to interact with (simulated) human users and programmatic APIs while following domain-specific policies in a consistent manner. 
+- [MMLU](https://zilliz.com/glossary/mmlu-benchmark) (General): 57 tasks designed to evaluate the multitask capabilities of LLMs across diverse subjects spanning topics like humanities, STEM, social sciences, and more
+- [MMMLU](https://huggingface.co/datasets/openai/MMMLU) (General): Same as MMLU but multilingual
+- [MMMU](https://mmmu-benchmark.github.io/) (Visual reasoning): 11500 questions covering six core disciplines: Art & Design, Business, Science, Health & Medicine, Humanities & Social Science, and Tech & Engineering
+- [HellaSwag](https://rowanzellers.com/hellaswag/) (Reasoning): Language completion task that evaluates commonsense reasoning
+- [Humanity's Last Exam](https://agi.safe.ai/) (Reasoning): A multi-modal benchmark with 2500 challenging questions across over a hundred subjects to evaluate reasoning and knowledge
+- [AIME](https://www.vals.ai/benchmarks/aime-2025-03-11) (Mathematics): Competitive high school math benchmark
+- [GPQA Diamond](https://github.com/idavidrein/gpqa) (Science): Complex benchmark that evaluates quality and reliability across biology, chemistry, and physics
+- Math 500 (Mathematics): Evaluates mathematical problem solving
+- [BFCL](https://gorilla.cs.berkeley.edu/leaderboard.html): Measures how LLMs use tools
+- [Aider polyglot](https://aider.chat/docs/leaderboards/) (Coding): Measures capabilities for writing and editing code
+- LiveCodeBench (Coding): Measures capabilities for code editing
+
+Here are some leaderboards that rank LLMs.
+
+- [Vellum](https://www.vellum.ai/llm-leaderboard)
+- [ArtificialAnalysis](https://artificialanalysis.ai/)
 - [WebDev Arena](https://web.lmarena.ai/leaderboard)
 - [LM Arena](https://lmarena.ai/?leaderboard)
-- [ArtificialAnalysis](https://artificialanalysis.ai/)
-- [Vellum](https://www.vellum.ai/llm-leaderboard)
+- [EQ Bench](https://eqbench.com/)
 - [HF LymSys](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard)
 - [TrustBit](https://www.trustbit.tech/en/llm-leaderboard-juli-2024)
+- [BFCL](https://gorilla.cs.berkeley.edu/leaderboard.html)
 - [DocsBot](https://docsbot.ai/models) Model specs
 
 ## Image models
@@ -104,3 +125,7 @@ Here is a list of the top image generation models
 - [Sora](https://openai.com/sora/) | OpenAI, Closed
 - [Veo 2](https://deepmind.google/technologies/veo/veo-2/) | Google Deepmind, Closed
 - [Amazon Nova Reel](https://aws.amazon.com/ai/generative-ai/nova/creative/) | Amazon, Closed
+
+## Music models
+
+- Lyria | Google Deepmind, Closed
