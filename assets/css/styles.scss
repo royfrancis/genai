@@ -3,6 +3,7 @@
 /*-- scss:defaults --*/
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Space+Grotesk:wght@300..700&display=swap');
+$primary: #1f618d;
 $code-block-bg: #f5f5f5;
 $font-family-sans-serif: 'Space Grotesk', 'Source Sans Pro', 'Helvetica', 'sans-serif';
 $font-family-monospace: 'Fira Mono', 'Ubuntu Mono', 'Lucida Console', 'Courier', 'monospace';
@@ -18,7 +19,7 @@ $h6-font-size: 1rem;
 $code-block-border-color: none;
 $code-block-font-size: 0.95rem;
 $code-bg: $code-block-bg;
-$link-color: #1f618d;
+$link-color: $primary;
 /* inline code */
 /*$code-color: ; */
 
@@ -60,4 +61,9 @@ $link-color: #1f618d;
 
 .reactable {
   font-size: 0.9rem;
+}
+
+.badge,
+.badge-primary {
+  background-color: $primary;
 }
