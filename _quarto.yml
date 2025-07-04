@@ -6,7 +6,7 @@ book:
   title: "GenAI"
   author: Roy Francis
   page-navigation: true
-  favicon: assets/favicon.png
+  favicon: assets/favicon.svg
   open-graph: true
   description: "A practical overview of Large Language Models (LLMs), generative AI and the tools to use them."
   image: assets/cover.webp

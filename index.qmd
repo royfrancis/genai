@@ -12,10 +12,10 @@ format:
 
 ![](assets/cover.webp)
 
-[Large Language Models And Generative AI]{.largest}  
+[**Large Language Models And Generative AI**]{.largest}  
 [A practical overview of LLMs]{.large style="letter-spacing:0.15em;text-transform:uppercase;"}
 
-By **Roy Francis**
+**Roy Francis**
 
 ---
 
