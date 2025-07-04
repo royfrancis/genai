@@ -1,0 +1,36 @@
+meta:
+  name: brand.yml
+  link: https://posit-dev.github.io/brand-yml
+
+logo:
+  small: assets/favicon-96x96.png
+  medium: assets/web-app-manifest-192x192.png
+  large: assets/favicon.svg
+
+color:
+  palette:
+    blue: "#1f618d"
+  primary: blue
+
+typography:
+  fonts:
+    - family: Space Grotesk
+      source: google
+    - family: Fira Code
+      source: google
+  base: 
+    family: Space Grotesk
+    size: 17px
+  headings: 
+    family: Space Grotesk
+    weight: 600
+  monospace: 
+    family: Fira Code
+    size: 18px
+  monospace-inline:
+    background-color: "#f5f5f5"
+  monospace-block:
+    background-color: "#f5f5f5"
+  link:
+    color: primary
+    decoration: none

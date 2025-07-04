@@ -1,14 +1,6 @@
 /* custom css style */
 
 /*-- scss:defaults --*/
-
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Space+Grotesk:wght@300..700&display=swap');
-$primary: #1f618d;
-$code-block-bg: #f5f5f5;
-$font-family-sans-serif: 'Space Grotesk', 'Source Sans Pro', 'Helvetica', 'sans-serif';
-$font-family-monospace: 'Fira Mono', 'Ubuntu Mono', 'Lucida Console', 'Courier', 'monospace';
-$font-size-root: 18px;
-$code-font-size: 14px;
 /* major second scale */
 $h1-font-size: 1.802rem;
 $h2-font-size: 1.602rem;
@@ -17,11 +9,6 @@ $h4-font-size: 1.266rem;
 $h5-font-size: 1.125rem;
 $h6-font-size: 1rem;
 $code-block-border-color: none;
-$code-block-font-size: 0.95rem;
-$code-bg: $code-block-bg;
-$link-color: $primary;
-/* inline code */
-/*$code-color: ; */
 
 /*-- scss:rules --*/
 
@@ -48,6 +35,10 @@ $link-color: $primary;
 
 .smallest {
     font-size: 0.512em;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .references {
