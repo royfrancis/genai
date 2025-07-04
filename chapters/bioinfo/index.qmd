@@ -1,6 +1,6 @@
 ---
 title: Bioinformatics
-description: AI in bioinformatics.
+description: AI in Bioinformatics
 execute:
   echo: false
   eval: true
