@@ -1,6 +1,6 @@
 ---
 title: Tools
-description: Running and using generative AI
+description: Running and using Generative AI
 ---
 
 ## Ollama
@@ -71,8 +71,10 @@ fabric --listpatterns | grep "create"
 fabric --listpatterns | grep "analyze"
 ```
 
+Install [yt-dlp](https://github.com/yt-dlp/yt-dlp) to allow fabric to download and use youtube videos.
+
 ```bash
-echo "Search for recent articles about the future of AI and write me a 500-word essay on the findings" | fabric --agents
+fabric -y https://www.youtube.com/watch?v=zKndCikg3R0 -sp summarize
 ```
 
 ## R
