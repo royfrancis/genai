@@ -1,6 +1,6 @@
 ---
 title: Models
-description: Guide to various LLM models, features and benchmarks.
+description: Guide to various LLM models, features and benchmarks
 execute:
   echo: false
   eval: true
@@ -78,23 +78,40 @@ Other factors that make a model desirable are speed and cost of running the mode
 
 These are some of the benchmark standards/datasets.
 
-- [SWE-bench](https://www.swebench.com/) (Agentic coding): Evaluates if LLMs can evaluate real-world GitHub issues. Measures Agentic reasoning
-- [Terminal-bench](https://www.tbench.ai/) (Agentic coding): A collection of tasks to evaluate terminal mastery
-- [TAU-bench](https://sierra.ai/blog/benchmarking-ai-agents) (Agentic tool usage): Measures an agent’s ability to interact with (simulated) human users and programmatic APIs while following domain-specific policies in a consistent manner. 
-- [MMLU](https://zilliz.com/glossary/mmlu-benchmark) (General): 57 tasks designed to evaluate the multitask capabilities of LLMs across diverse subjects spanning topics like humanities, STEM, social sciences, and more
-- [MMMLU](https://huggingface.co/datasets/openai/MMMLU) (General): Same as MMLU but multilingual
-- [MMMU](https://mmmu-benchmark.github.io/) (Visual reasoning): 11500 questions covering six core disciplines: Art & Design, Business, Science, Health & Medicine, Humanities & Social Science, and Tech & Engineering
-- [HellaSwag](https://rowanzellers.com/hellaswag/) (Reasoning): Language completion task that evaluates commonsense reasoning
-- [Humanity's Last Exam](https://agi.safe.ai/) (Reasoning): A multi-modal benchmark with 2500 challenging questions across over a hundred subjects to evaluate reasoning and knowledge
-- [AIME](https://www.vals.ai/benchmarks/aime-2025-03-11) (Mathematics): Competitive high school math benchmark
-- [GPQA Diamond](https://github.com/idavidrein/gpqa) (Science): Complex benchmark that evaluates quality and reliability across biology, chemistry, and physics
-- Math 500 (Mathematics): Evaluates mathematical problem solving
-- [BFCL](https://gorilla.cs.berkeley.edu/leaderboard.html): Measures how LLMs use tools
-- [Aider polyglot](https://aider.chat/docs/leaderboards/) (Coding): Measures capabilities for writing and editing code
-- LiveCodeBench (Coding): Measures capabilities for code editing
+- [GPQA Diamond](https://github.com/idavidrein/gpqa) (Science)  
+  Evaluates ability to answer challenging graduate-level questions in biology, chemistry, and physics. These questions are google-proof and requires deep spealized knowledge in the respective fields. Human experts achieve around 65% accuracy on this benchmark. Tests a model's ability to understand and apply complex domain-specific scientific concepts.
+- [MMLU](https://zilliz.com/glossary/mmlu-benchmark) (Multi-task)  
+  57 tasks designed to evaluate general knowledge and problem-solving capabilities of LLMs across diverse subjects spanning topics like humanities, STEM, social sciences, and more. Evaluates models in zero-shot and few-shot settings. Models are scored based on their accuracy in answering multiple-choice questions.
+- [MMLU-Pro]() (Multi-task)  
+  An enchanced version of MMLU with more challenging and complex questions. More reasoning intensive questions decreasing chance of gguessing. Less sensitive tto prompt variation.
+- [MMMLU](https://huggingface.co/datasets/openai/MMMLU) (Multi-task)  
+  Same as MMLU but multilingual
+- [MMMU](https://mmmu-benchmark.github.io/) (Multimodal)  
+  11500 questions covering six core disciplines: Art & Design, Business, Science, Health & Medicine, Humanities & Social Science, and Tech & Engineering
+- [SWE-bench](https://www.swebench.com/) (Agentic coding)  
+  Evaluates if LLMs can evaluate real-world GitHub issues. Measures Agentic reasoning
+- [Terminal-bench](https://www.tbench.ai/) (Agentic coding)  
+  A collection of tasks to evaluate terminal mastery
+- [TAU-bench](https://sierra.ai/blog/benchmarking-ai-agents) (Agentic tool usage)  
+  Measures an agent’s ability to interact with (simulated) human users and programmatic APIs while following domain-specific policies in a consistent manner. 
+- [HellaSwag](https://rowanzellers.com/hellaswag/) (Reasoning)  
+  Language completion task that evaluates commonsense reasoning
+- [Humanity's Last Exam](https://agi.safe.ai/) (Reasoning)  
+  A multi-modal benchmark with 2500 challenging questions across over a hundred subjects to evaluate reasoning and knowledge
+- [AIME](https://www.vals.ai/benchmarks/aime-2025-03-11) (Mathematics)  
+  Competitive high school math benchmark
+- Math 500 (Mathematics)  
+  Evaluates mathematical problem solving from high school to competition-level problems. Includes algebra, geometry, probability, and calculus.
+- [BFCL](https://gorilla.cs.berkeley.edu/leaderboard.html)  
+  Measures how LLMs use tools
+- [Aider polyglot](https://aider.chat/docs/leaderboards/) (Coding)  
+  Measures capabilities for writing and editing code
+- LiveCodeBench (Coding)  
+  Measures capabilities for code editing
 
 Here are some leaderboards that rank LLMs.
 
+- [LLM Stats](https://llm-stats.com/)
 - [Vellum](https://www.vellum.ai/llm-leaderboard)
 - [ArtificialAnalysis](https://artificialanalysis.ai/)
 - [WebDev Arena](https://web.lmarena.ai/leaderboard)
