@@ -3,7 +3,11 @@ title: Tools
 description: Running and using Generative AI
 ---
 
-## Ollama
+## CLI
+
+Command line tools for LLMs.
+
+### Ollama
 
 Open source models can be run locally on your own computer given sufficient compute and storage resources. The easiest tool to run models locally is [Ollama](https://ollama.com/). List of models directly supported by Ollama are listed on their website. Resource requirements for models are listed on their [GitHub repo](https://github.com/ollama/ollama).
 
@@ -19,7 +23,7 @@ Ollama can be used with GUIs as well as integrate programatically with Python an
 
 According to Ollama, you should have at least 8 GB of RAM available to run the 7B models, 16 GB to run the 13B models, and 32 GB to run the 33B models.
 
-## Fabric
+### Fabric
 
 [Fabric](https://github.com/danielmiessler/fabric) allows command-line access to LLM models.
 
@@ -77,13 +81,15 @@ Install [yt-dlp](https://github.com/yt-dlp/yt-dlp) to allow fabric to download a
 fabric -y https://www.youtube.com/watch?v=zKndCikg3R0 -sp summarize
 ```
 
-## R
+### R
 
 R packages that are helpful for interacting with LLMs.
 
 |Package|Interfaces|Features|
 |---|---|---|
-[ellmer](https://ellmer.tidyverse.org/)|openai,anthropic,gemini etc|query,chat,text->image,vision|
+[ellmer](https://ellmer.tidyverse.org/)|all|query,chat,text->image,vision|
+|[vitals](https://vitals.tidyverse.org/)|all|Benchmark LLMs|
+|[mall](https://mlverse.github.io/mall/)|all|NLP using LLMs|
 |[openai samterfa](https://github.com/samterfa/openai)|openai|query,chat,text->image,vision|
 |[openai irudnyts](https://irudnyts.github.io/openai/)|openai|query,chat,text->image,vision|
 |[rollama](https://github.com/JBGruber/rollama)|ollama|query,chat,vision|
@@ -110,6 +116,7 @@ Tools for generating images from text.
 
 |Tool|Category|Description|
 |---|---|---|
+|[ChatGPT](https://chatgpt.com/)|Text to Image|Basic|
 |[Microsoft Designer](https://designer.microsoft.com/)|Text to Image|Generation and editing using Dall-E|
 |[Ideogram](https://ideogram.ai/)|Text to Image||
 |[Leonardo AI](https://leonardo.ai/)|Text to Image|Advanced reference and style control|
