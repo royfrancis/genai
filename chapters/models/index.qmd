@@ -45,9 +45,10 @@ readxl::read_xlsx("models.xlsx") %>%
 # remove_css()
 ```
 
-The graph below shows a timeline of top LLMs and the number of hyperparameters.
+The graph below shows a timeline of popular LLMs and their intelligence over time. GPQA score is explained in the next section. This graph won't display well on narrow screens.
 
 ```{r}
+#| eval: false
 #| label: fig-scatter-llms
 #| fig-cap: Timeline of recent LLMs showing number of hyperparameters on the Y axis. The size of the points denote the context window size in tokens.
 
@@ -68,7 +69,12 @@ highchart(type = "chart") %>%
   hc_chart(zoomType = "xy")
 ```
 
-The number of hyperparameters although indicative of the capabilities of a model doesn't explain the performance completely. The model architecture, training methodology and the quality and quantity of training data may allow a smaller model to catch up to the capabilities of a larger model. 
+<div style="border: none; overflow: hidden; margin: 15px auto;">
+<iframe scrolling="no" src="https://llm-stats.com/" style="border: 0px none; height: 1210px; margin-left: -80px; margin-top: -720px; width: 120%;">
+</iframe>
+</div>
+
+The intelligence of a model is loosely based on the model architecture, number of hyperparameters, training data and more. The training methodology and the quality and quantity of training data may allow a smaller model to catch up to the capabilities of a larger model. 
 
 Other factors that make a model desirable are speed and cost of running the model. Certain models may also be strong in certain focus areas such as coding, reasoning and knowledge.
 
